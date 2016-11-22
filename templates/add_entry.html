@@ -1,0 +1,23 @@
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+<script src="{{ url_for('static', filename='scripting.js')}}"></script>
+
+
+{% extends "navigation.html" %}
+{% block content %}
+<h1>Enter your private message</h1>
+{% if error %}
+<p class=error><strong>Error:</strong> {{ error }}
+{% endif %}
+
+<div id="error_display" class="error_hide">Hi There</div>
+
+<form method="post" action="{{ url_for('insert_entry') }}" onsubmit="return validate_add_entry()" name="myform">
+<p><label>Welcome, {{user}}!
+<p><label>To:</label> <input type="text" name="to" id="to"><p>
+<p><label>Encrypt Message? (else paste encrypted txt &amp; ds):</label><input type="checkbox" name="encrypt" id="encrypt" checked><p>
+<p><label></label> <textarea name="entry" id="entry" style="width: 300px; height:150px"></textarea><p>
+<p><label>DS (encrypted text only):</label> <input type="text" name="ds" id="ds" size="60"/><p>
+<input type="hidden" name="user" value="{{user}}">
+<p><button type="submit">Send</button></p>
+</form>
+{% endblock %}

@@ -1,0 +1,45 @@
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+
+{% extends "navigation.html" %}
+{% block content %}
+<h1>{{user}}, thank you for submitting your message</h1>
+{% if error %}
+<p class=error><strong>Error:</strong> {{ error }}
+{% endif %}
+
+<form method="post" action="{{ url_for('insert_entry') }}">
+<!--
+<p><label>Encrypt, {{encrypt}} <BR>
+<p><label>DS</label> {{ds}} <BR><BR><HR><BR>
+-->
+
+{{ records|length }} messages retrieved
+<BR>Messages in blue were sent by you.
+
+<table border=1 cellpadding=3 cellspacing=0 bordercolor="C0C0C0" valign=top style="table-format:fixed; width:100%">
+  <tr align=center>
+    <th>Id</td>
+    <th>To/From</td>
+    <th>DateTime</td>
+    <th>User Msg</td>
+    <th>User DS</td>
+    <th>Encrypted Msg</td>
+    <th>DS</td>
+  </tr>
+{% for r in records %}
+  {% if user == r.user %}
+    <tr bgcolor="ccf5ff" valign="top">
+  {% else %}
+    <tr valign=top>
+  {% endif %}
+  <td>{{r.Id}}</td>
+  <td>To:{{r.to}},  <BR>From: {{r.user}}</td>
+  <td>{{r.datets}}</td>
+  <td>{{dict[r.Id]["msg"]}}</td>
+  <td><div style="width: 70px; word-wrap: break-word;">{{dict[r.Id]["ds"]}}</div></td>
+  <td>{{r.entry}}</td>
+  <td><div style="width: 70px; word-wrap: break-word;">{{r.ds}}</div></td>
+{% endfor %}
+</table>
+</form>
+{% endblock %}

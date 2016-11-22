@@ -1,0 +1,15 @@
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+
+
+{% block content %}
+Welcome to Applied Cryptography - Project 2!<BR><BR>
+<h1>Secure Message Send</h1>
+{% if error %}
+<p class=error><strong>Error:</strong> {{ error }}
+{% endif %}
+<form method="post" action="{{ url_for('validate_login') }}">
+<p><label>Userid:</label><BR> <input type="text" name="user"></p>
+<p><label>Password:</label><BR> <input type="password" name="password"></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit">Send</button></p>
+</form>
+{% endblock %}
