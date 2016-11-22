@@ -24,7 +24,7 @@ Encrypted Flow             |  Decrypted Flow
 <BR>
 
 ## Running the Project:
-1) Run the following on the command line:
+1) Setup the project from the command line:
 ```
 	sudo pip install virtualenv
 	mkdir crypto_sms
