@@ -2,10 +2,10 @@
 
   Applied Cryptography Final Project provides a web application which allows system users to communicate with additional security.  This project contains:
   1) Flask web application enabled with https
-  2) user of the system exchange messages using symmetric encryption (shared key between user and server) and asymmetric encryption (server's public key) with AES-CBC and RSA
-  3) message integrity validated using digital signatures with SHA256 and PSS
-  4) users are authenticated using bcrypt to validate salted hashed passwords
-  5) storage of users and messages available in Sqlite
+  2) User of the system exchange messages using symmetric encryption (shared key between user and server) and asymmetric encryption (server's public key) with AES-CBC and RSA
+  3) Message integrity validated using digital signatures with SHA256 and PSS
+  4) Users are authenticated using bcrypt to validate salted hashed passwords
+  5) Storage of users and messages available in Sqlite
 <BR>
 
 
