@@ -116,7 +116,7 @@ def add_entry():
   return str
 
 
-# This allows the entry to be current and previous entries to be displayed.
+# This allows the current and previous entries to be displayed.
 @app.route("/insert_entry", methods=["GET", "POST"])
 def insert_entry():
   entry = request.form["entry"]
@@ -290,8 +290,9 @@ def database_insert(insert_record, table_name):
 
 
 """
-  Function creates signs entry with server pk,  then 
-  encrypts entry for storage into database.
+  Function receives the message, signs and encrypts with the 
+  user's privatekey, then encrypts with the server's publickey
+  for entry storage into the database.
 """
 def encrypt_msg(entry, user, to):
   server_publickey = get_server_keys("public")
@@ -338,8 +339,8 @@ def encrypt_msg_for_requester(entry, user):
 
 
 """
-  This is used for the test decryption page to validate 
-  testing.  This reverses the requester encryption.
+  This is used for the test decryption page for testing
+  validation.  This reverses the requester encryption.
 """
 def decrypt_encrypt_msg_for_requester(msg, ds, user):
   try:
@@ -397,8 +398,8 @@ def decrypt_msg(cipher, user, signature, req_user):
 
 """
   verify_signature():  This function allows verification of 
-  a msg into a hash with a stored database hash value for 
-  msg authentication.
+  a msg of a hash stored in the database for msg 
+  authentication.
 """
 def verify_signature(user, msg, db_signature):
   pk = get_user_keys("public", user, 0)
@@ -429,7 +430,7 @@ def get_server_keys(keytype):
   
 
 """
-  get_user_keys():  Get the specific user's symmetric shared 
+  get_user_keys():  Get the specific user's asymmetric 
   key.
 """
 def get_user_keys(keytype, user, bytelim):
