@@ -47,4 +47,10 @@ Encrypted Flow             |  Decrypted Flow
 	python sms_encrypt.py
 ```
 
+3) From a browser:
+```
+        Enter URL:  https://127.0.0.1:5001
+        Login with user/password:  one/1pass
+```
+
 Thanks!
