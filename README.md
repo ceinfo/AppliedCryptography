@@ -5,10 +5,10 @@
   2) user login to exchange asymmetric and symmetric encrypted msgs (your own/system created) between users, 
   3) message verification with digital signatures
   4) storage of users and messages in Sqlite
-  
 <BR>
-## Process Flow
 
+
+## Process Flow
 Encrypted Flow             |  Decrypted Flow
 :-------------------------:|:-------------------------:
 ![](https://raw.githubusercontent.com/ceinfo/AppliedCryptography-FinalProject/master/images/cryptoFinalEncryptFlow.png)  |  ![](https://raw.githubusercontent.com/ceinfo/AppliedCryptography-FinalProject/master/images/cryptoFinalDecryptFlow.png) 
@@ -17,7 +17,7 @@ Encrypted Flow             |  Decrypted Flow
 ## Assumptions
 ```
  * The private keys of the Server and User are not compromised.
- * Security mechanisms (AES, CBC, SHA256, and RSA) remain secure.
+ * Security mechanisms (AES, CBC, SHA256, and RSA) continue to remain secure.
 ```
 <BR>
 
@@ -25,8 +25,8 @@ Encrypted Flow             |  Decrypted Flow
 1) Run the following on the command line:
 ```
 	sudo pip install virtualenv
-	mkdir crypt_p2
-	cd crypt_p2
+	mkdir crypto_sms
+	cd crypto_sms
 	virtualenv venv
 	
 	. venv/bin/activate
