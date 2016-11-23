@@ -1,7 +1,7 @@
 # Applied Cryptography - Final Project
 
-  Applied Cryptography Final Project - Flask web application enabled with:
-  1) secured with https
+  Applied Cryptography Final Project provides a web application which allows system users to communicate with additional security.  This project contains:
+  1) Flask web application enabled with https
   2) user of the system exchange messages using symmetric encryption (shared key between user and server) and asymmetric encryption (server's public key) with AES-CBC and RSA
   3) message integrity validated using digital signatures with SHA256 and PSS
   4) users are authenticated using bcrypt to validate salted hashed passwords
