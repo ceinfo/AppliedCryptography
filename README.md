@@ -18,8 +18,8 @@ Encrypted Flow             |  Decrypted Flow
 
 ## Assumptions
 ```
- * The private keys of the server and user are not compromised.
- * Security mechanisms (AES, CBC, SHA256, and RSA) continue to remain secure.
+ * The private keys of the server and user are securely stored.
+ * Security mechanisms (AES, CBC, SHA256, and RSA) continue to remain uncompromised.
 ```
 <BR>
 
