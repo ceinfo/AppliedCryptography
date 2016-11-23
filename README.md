@@ -1,9 +1,20 @@
-# Applied Cryptography - Final Project 2
-This project was created for the Applied Cryptography class.  This is:
- * Flask based web application enabled with https 
- * Users are authenticated  
-  
+# Applied Cryptography - Final Project
 
+  Applied Cryptography Final Project - Flask web application enabled with:
+  1)  https
+  2) user login to exchange asymmetric and symmetric encrypted msgs (your own/system created) between users, 
+  3) message verification with digital signatures
+  4) storage of users and messages in sqlite
+  
+## Process Flow
+
+Encrypted Flow             |  Decrypted Flow
+:-------------------------:|:-------------------------:
+![](https://raw.githubusercontent.com/ceinfo/AppliedCryptography-FinalProject/master/images/cryptoFinalEncryptFlow.png)  |  ![](https://raw.githubusercontent.com/ceinfo/AppliedCryptography-FinalProject/master/images/cryptoFinalDecryptFlow.png) 
+
+
+## Assumptions
+*Keystore to be kept in 
 
 ## Running the Project:
 1) Run the following on the command line:
@@ -20,7 +31,6 @@ This project was created for the Applied Cryptography class.  This is:
 	pip install bcrypt
 	pip install PyCrypto
 	export FLASK_APP=sms_encrypt.py
-	</code>
 ```
 
 2) Start the program:
