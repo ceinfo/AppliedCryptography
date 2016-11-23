@@ -13,6 +13,7 @@
 Encrypted Flow             |  Decrypted Flow
 :-------------------------:|:-------------------------:
 ![](https://raw.githubusercontent.com/ceinfo/AppliedCryptography-FinalProject/master/images/cryptoFinalEncryptFlow.png)  |  ![](https://raw.githubusercontent.com/ceinfo/AppliedCryptography-FinalProject/master/images/cryptoFinalDecryptFlow.png) 
+<BR>
 
 
 ## Assumptions
