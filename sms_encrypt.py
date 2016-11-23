@@ -50,6 +50,9 @@ user_fields = ["user", "password"]
 message_fields = ["to", "user", "entry", "ds", "datets"]
 KEY_LENGTH = 1024
 KEYDIR = "keystore"
+KEYDIR_PRIVATE = os.path.join(".", KEYDIR, "privatekeys")
+KEYDIR_PUBLIC = os.path.join(".", KEYDIR, "publickeys")
+KEYDIR_CRYPTO = os.path.join(".", KEYDIR, "serverkeys")
 CRYPTO_PUBLIC_KEY = "crypto_publickey"
 CRYPTO_PRIVATE_KEY = "crypto_privatekey"
 cer = os.path.join(".", KEYDIR, "crypto.com.crt")
@@ -365,8 +368,8 @@ def decrypt_encrypt_msg_for_requester(msg, ds, user):
   verify the validity of message.  
 """
 def decrypt_msg(cipher, user, signature, req_user):
-  server_publickey = get_server_keys("private")
-  rsa_decrypt = server_publickey.decrypt(cipher)
+  server_privatekey = get_server_keys("private")
+  rsa_decrypt = server_privatekey.decrypt(cipher)
 
   try:
     rsa_decrypt = base64.b64decode(rsa_decrypt)
@@ -394,7 +397,7 @@ def decrypt_msg(cipher, user, signature, req_user):
   msg authentication.
 """
 def verify_signature(user, msg, db_signature):
-  pk = get_user_keys("private", user, 0)
+  pk = get_user_keys("public", user, 0)
   hash = SHA256.new(msg)
   verifier = PKCS1_PSS.new(pk)
   db_signature = base64.b64decode(db_signature)
@@ -412,9 +415,9 @@ def verify_signature(user, msg, db_signature):
 """
 def get_server_keys(keytype):
   if keytype == "private":
-    server_pk = os.path.join(KEYDIR, CRYPTO_PRIVATE_KEY)
+    server_pk = os.path.join(KEYDIR_CRYPTO, CRYPTO_PRIVATE_KEY)
   else:
-    server_pk = os.path.join(KEYDIR, CRYPTO_PUBLIC_KEY)
+    server_pk = os.path.join(KEYDIR_CRYPTO, CRYPTO_PUBLIC_KEY)
 
   key = open(server_pk, "r").read()
   server_publickey = RSA.importKey(key)
@@ -427,9 +430,9 @@ def get_server_keys(keytype):
 """
 def get_user_keys(keytype, user, bytelim):
   if keytype == "private":
-    keyname = os.path.join(KEYDIR, user + "_privatekey")
+    keyname = os.path.join(KEYDIR_PRIVATE, user + "_privatekey")
   else:
-    keyname = os.path.join(KEYDIR, user + "_publickey")
+    keyname = os.path.join(KEYDIR_PUBLIC, user + "_publickey")
 
   # Return if only want a portion of key
   if bytelim:
@@ -455,9 +458,9 @@ def writefile(fname, text):
   key pairs.
 """
 def generate_keys():
-  keydir = KEYDIR
-  if not os.path.exists(keydir):
-    os.mkdir(keydir)
+  for keydir in [KEYDIR, KEYDIR_PRIVATE, KEYDIR_PUBLIC]:
+    if not os.path.exists(keydir):
+      os.mkdir(keydir)
   for x in ["one", "two", "three"]:
     rsa_pair = RSA.generate(KEY_LENGTH,random_gen)
     """
@@ -467,8 +470,8 @@ def generate_keys():
 
     sk = rsa_pair.exportKey("DER")
     pk = rsa_pair.publickey().exportKey("DER")
-    writefile(keydir + "/" + x + "_privatekey", sk)
-    writefile(keydir + "/" + x + "_publickey", pk)
+    writefile(KEYDIR_PRIVATE + "/" + x + "_privatekey", sk)
+    writefile(KEYDIR_PUBLIC + "/" + x + "_publickey", pk)
   
 
 ############################################################
