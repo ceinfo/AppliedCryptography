@@ -1,4 +1,8 @@
 #!/usr/bin/python
+"""
+Catherine Eng
+  Applied Cryptography - Send Message Service
+"""
 
 import sqlite3
 import datetime

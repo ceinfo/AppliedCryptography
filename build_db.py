@@ -2,6 +2,8 @@
 
 """
 Catherine Eng
+  Applied Cryptography - build our database and seeds inital users 
+  and used for our Send Message Service.
 """
 
 import time
