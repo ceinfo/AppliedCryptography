@@ -9,8 +9,8 @@
 <BR>
 
 ## Demonstration
-<a href="https://www.youtube.com/watch?v=8WdmWd4EMTw&feature=youtu.be">
-[![Malscan](http://img.youtube.com/vi/8WdmWd4EMTw/0.jpg)](https://www.youtube.com/watch?v=8WdmWd4EMTw&feature=youtu.be "")
+<a href="http://www.youtube.com/watch?v=8WdmWd4EMTw">
+[![Demonstration](http://img.youtube.com/vi/8WdmWd4EMTw/0.jpg)](http://www.youtube.com/watch?v=8WdmWd4EMTw "")
 </a>
 <BR>
 
