@@ -8,10 +8,8 @@
   5) Storage of users and messages available in Sqlite
 <BR>
 
-## Demonstration
-<a href="http://www.youtube.com/watch?v=8WdmWd4EMTw">
-[![Demonstration](http://img.youtube.com/vi/8WdmWd4EMTw/0.jpg)](http://www.youtube.com/watch?v=8WdmWd4EMTw "")
-</a>
+## Video Demonstration
+<a href="http://www.youtube.com/watch?v=8WdmWd4EMTw"><img src="http://img.youtube.com/vi/8WdmWd4EMTw/0.jpg"/></a>
 <BR>
 
 ## Process Flow
