@@ -8,6 +8,11 @@
   5) Storage of users and messages available in Sqlite
 <BR>
 
+## Demonstration
+<a href="https://www.youtube.com/watch?v=8WdmWd4EMTw&feature=youtu.be">
+[![Malscan](http://img.youtube.com/vi/8WdmWd4EMTw/0.jpg)](https://www.youtube.com/watch?v=8WdmWd4EMTw&feature=youtu.be "")
+</a>
+<BR>
 
 ## Process Flow
 Encrypted Flow             |  Decrypted Flow
@@ -23,7 +28,7 @@ Encrypted Flow             |  Decrypted Flow
 ```
 <BR>
 
-## Running the Project:
+## Running the Project
 1) Setup the project from the command line:
 ```
 	sudo pip install virtualenv
